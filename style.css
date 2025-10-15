@@ -6,11 +6,32 @@
 }
 
 body {
-  background-color: #0a0a0a;
+  background: linear-gradient(135deg, #1d1d1d 0%, #0e0e0e 50%,#1d1d1d 100%);
   color: #f1f1f1;
   line-height: 1.6;
+  background-attachment: fixed;
+  overflow-x: hidden;
+  position: relative;
 }
 
+/* LINHAS DIAGONAIS SUTIS */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(255, 215, 0, 0.03),
+    rgba(255, 215, 0, 0.03) 1px,
+    transparent 1px,
+    transparent 20px
+  );
+  pointer-events: none;
+  z-index: 0;
+}
 
 .container {
   width: 90%;
@@ -22,12 +43,11 @@ header{
  height: 80px;           
     display:flex;         
     align-items: center;    
-    justify-content: space-between;
+    justify-content:space-between;
     padding: 0 20px;        
     background-color: #000000; 
     box-shadow: 0 2px 5px rgba(0,0,0,0.1)
 }
-
 
 
 .logo h1 {
@@ -43,7 +63,7 @@ header{
 header .container {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: center; 
 }
 
 nav ul {
@@ -69,7 +89,8 @@ nav a:hover {
   align-items: center;
   justify-content: center;
   padding: 80px 0;
-  background: linear-gradient(to right, #0a0a0a, #1a1a1a);
+  background: linear-gradient(to right, rgba(0,0,0,0.7), rgba(10,10,10,0.7)),
+              url('logo.png') center/cover no-repeat;
 }
 
 .hero .container {
@@ -453,5 +474,113 @@ color:  #FFD700;
    
     max-height: 300px; 
     width: auto;      
+}
+.feature img,
+.course-card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.feature img:hover,
+.course-card img:hover {
+  transform: scale(1.05);
+}
+
+.model-image {
+  position: relative;
+  width: 50%;
+}
+
+.model-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-right: 3px solid #FFD700;
+  display: block;
+}
+
+.model-card.reverse .model-image img {
+  border-right: none;
+  border-left: 3px solid #FFD700;
+}
+
+.car-tag {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  background-color: rgba(255, 215, 0, 0.9);
+  color: #000;
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 6px 12px;
+  border-radius: 8px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+}
+
+.model-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1a1a1a;
+  margin: 30px 0;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.model-card:hover {
+  transform: scale(1.02);
+}
+
+.model-info {
+  padding: 30px;
+  text-align: left;
+  flex: 1;
+}
+
+.model-info h3 {
+  color: #FFD700;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.model-info p {
+  color: #ccc;
+  line-height: 1.6;
+}
+
+.model-card.reverse {
+  flex-direction: row-reverse;
+}
+
+@media (max-width: 768px) {
+  .model-card,
+  .model-card.reverse {
+    flex-direction: column;
+  }
+
+  .model-image {
+    width: 100%;
+  }
+
+  .model-image img {
+    border: none;
+    border-bottom: 3px solid #FFD700;
+  }
+
+  .car-tag {
+    right: 10px;
+    bottom: 10px;
+    font-size: 0.8rem;
+  }
+
+  .model-info {
+    text-align: center;
+  }
 }
 
