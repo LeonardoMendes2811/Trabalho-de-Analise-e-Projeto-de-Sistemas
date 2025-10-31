@@ -4,7 +4,7 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
-
+/* esse aqui é a parte de cima do body junto com o coisa da imagem da marca*/
 body {
   background: linear-gradient(135deg, #1d1d1d 0%, #0e0e0e 50%,#1d1d1d 100%);
   color: #f1f1f1;
@@ -14,7 +14,7 @@ body {
   position: relative;
 }
 
-/* LINHAS DIAGONAIS SUTIS */
+/* esse aqui é as linhas q eu fiz */
 body::before {
   content: "";
   position: fixed;
@@ -39,31 +39,65 @@ body::before {
   margin: 0 auto;
 }
 
-header{
- height: 80px;           
-    display:flex;         
-    align-items: center;    
-    justify-content:space-between;
-    padding: 0 20px;        
-    background-color: #000000; 
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1)
+header {
+  position: fixed;              /* fixa o header na tela */
+  top: 0;                       /* gruda no topo */
+  left: 0;
+  width: 100%;                  /* largura */
+  height: 90px;                 /* altura */
+  display: flex;
+  align-items: center;          /* centraliza verticalmente */
+  justify-content: space-between;
+  padding: 0 30px;
+  background-color: #000000;    /* fundo preto */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3); /* sombra pra destaque */
+  z-index: 1000;                /* garante que fica sobre o conteúdo */
 }
 
+/* em esse é pra n ficar bugado, pq ai o body vai pra tras ai buga td */
+body {
+  padding-top: 90px;            /* pra altura ficar igual a do header */
+}
+
+/* esse é o container interno pdpa */
+header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* esse é a imagem do carro blzz */
+.footer-logo-principal {
+  max-height: 65px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+  margin-left: -250px;  /* esse move pro canto */
+  margin-top: 40px;     /* esse pra baixo */
+}
+
+/* essa é a parte da logo da SLMotors*/
+.logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 50px;         /* separa da imagem */
+  transform: translateY(5px); /* esse ai desce a linha*/
+}
 
 .logo h1 {
-  color:  #FFD700;
-  font-size: 1.8rem;
+  color: #FFD700;
+  font-size: 1.9rem;
+  margin: 0;
+  line-height: 1.2;
 }
 
 .logo p {
   color: #ccc;
   font-size: 0.9rem;
-}
-
-header .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center; 
+  margin: 0;
+  line-height: 1;
 }
 
 nav ul {
@@ -83,7 +117,7 @@ nav a:hover {
   color:  #FFD700;
 }
 
-
+ /* aqui é o hero, mexe aqui n ta, deu mó trabalho pra fzr*/
 .hero {
   display: flex;
   align-items: center;
@@ -474,6 +508,7 @@ color:  #FFD700;
    
     max-height: 300px; 
     width: auto;      
+
 }
 .feature img,
 .course-card img {
